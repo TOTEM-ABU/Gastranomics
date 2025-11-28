@@ -13,10 +13,8 @@ import { RegionService } from './region.service';
 import { CreateRegionDto } from './dto/create-region.dto';
 import { UpdateRegionDto } from './dto/update-region.dto';
 import { ApiQuery } from '@nestjs/swagger';
-import { RoleGuard } from 'src/role/role.guard';
-import { Roles } from 'src/user/decorators/roles.decorators';
-import { AuthGuard } from 'src/auth/auth.guard';
-import { RoleType } from '@prisma/client';
+import { RoleType } from '../generated/prisma/enums';
+import { Roles, AuthGuard, RoleGuard } from '../tools';
 
 @Controller('region')
 export class RegionController {

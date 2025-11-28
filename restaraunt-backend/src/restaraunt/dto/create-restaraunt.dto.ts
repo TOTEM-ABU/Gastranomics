@@ -3,14 +3,13 @@ import {
   IsBoolean,
   IsNumber,
   IsString,
-  IsUUID,
-  Length,
   Max,
   Min,
   Matches,
   IsEnum,
 } from 'class-validator';
-import { RestaurantType } from '@prisma/client';
+
+import { RestaurantType } from '../../generated/prisma/enums';
 
 export class CreateRestarauntDto {
   @ApiProperty()

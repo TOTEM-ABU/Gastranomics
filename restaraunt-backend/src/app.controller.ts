@@ -1,10 +1,9 @@
 import { Controller, Get, UseGuards } from '@nestjs/common';
 import { AppService } from './app.service';
-import { AuthGuard } from 'src/auth/auth.guard';
-import { RoleGuard } from 'src/role/role.guard';
 import { Roles } from 'src/user/decorators/roles.decorators';
-import { RoleType } from '@prisma/client';
+import { RoleType } from './generated/prisma/enums';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { RoleGuard, AuthGuard } from './tools';
 
 @Controller()
 export class AppController {

@@ -6,7 +6,6 @@ import {
   Patch,
   Param,
   Delete,
-  ParseIntPipe,
   Query,
   UseGuards,
 } from '@nestjs/common';
@@ -16,10 +15,8 @@ import { LoginUserDto } from './dto/login-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { RefreshTokenDto } from './dto/refresh-token.dto';
 import { ApiQuery } from '@nestjs/swagger';
-import { Roles } from './decorators/roles.decorators';
-import { RoleType } from '@prisma/client';
-import { RoleGuard } from 'src/role/role.guard';
-import { AuthGuard } from 'src/auth/auth.guard';
+import { RoleType } from '../generated/prisma/enums';
+import { Roles, AuthGuard, RoleGuard } from '../tools';
 
 @Controller('user')
 export class UserController {

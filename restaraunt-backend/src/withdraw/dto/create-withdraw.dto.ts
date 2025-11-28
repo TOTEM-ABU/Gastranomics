@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { WithdrawType } from '@prisma/client';
 import { IsEnum, IsOptional, IsString, IsUUID, Min } from 'class-validator';
+
+import { WithdrawType } from '../../generated/prisma/enums';
 
 export class CreateWithdrawDto {
   @ApiProperty({ enum: WithdrawType, example: 'OUTCOME or INCOME' })

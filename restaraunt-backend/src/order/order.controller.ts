@@ -13,12 +13,10 @@ import {
 import { OrderService } from './order.service';
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderDto } from './dto/update-order.dto';
-import { AuthGuard } from 'src/auth/auth.guard';
 import { Request } from 'express';
 import { ApiQuery } from '@nestjs/swagger';
-import { RoleGuard } from 'src/role/role.guard';
-import { RoleType } from '@prisma/client';
-import { Roles } from 'src/user/decorators/roles.decorators';
+import { RoleType } from '../generated/prisma/enums';
+import { Roles, AuthGuard, RoleGuard } from '../tools';
 
 @Controller('order')
 export class OrderController {

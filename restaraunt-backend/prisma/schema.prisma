@@ -1,10 +1,10 @@
-generator client {
-  provider = "prisma-client-js"
+datasource db {
+  provider = "sqlite"
 }
 
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
 }
 
 enum RoleType {
@@ -61,14 +61,14 @@ model User {
 }
 
 model Restaurant {
-  id       String  @id @default(uuid())
-  name     String  @unique
+  id       String         @id @default(uuid())
+  name     String         @unique
   tip      Float
   type     RestaurantType @default(RESTAURANT)
   address  String
   phone    String
-  isActive Boolean @default(true)
-  balance  Float   @default(0)
+  isActive Boolean        @default(true)
+  balance  Float          @default(0)
 
   Products   Product[]
   Categories Category[]
@@ -123,9 +123,9 @@ model Order {
 
   restaurantId String?
   Restaurant   Restaurant? @relation(fields: [restaurantId], references: [id])
-  waiterId    String?
-  Waiter      User?       @relation("OrderToWaiter", fields: [waiterId], references: [id])
-  OrderItems  OrderItem[] @relation("OrderToOrderItems")
+  waiterId     String?
+  Waiter       User?       @relation("OrderToWaiter", fields: [waiterId], references: [id])
+  OrderItems   OrderItem[] @relation("OrderToOrderItems")
 
   createdAt DateTime @default(now())
 }
@@ -168,5 +168,3 @@ model Debt {
 
   createdAt DateTime @default(now())
 }
-
-

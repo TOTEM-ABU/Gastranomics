@@ -38,7 +38,7 @@ export class RegionService {
           name: {
             contains: search,
             mode: 'insensitive',
-          },
+          } as any,
         },
         orderBy: {
           name: sort,
@@ -59,7 +59,7 @@ export class RegionService {
           name: {
             contains: search,
             mode: 'insensitive',
-          },
+          } as any,
         },
       });
 

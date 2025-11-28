@@ -13,10 +13,8 @@ import { ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { ApiQuery } from '@nestjs/swagger';
-import { AuthGuard } from 'src/auth/auth.guard';
-import { RoleGuard } from 'src/role/role.guard';
-import { Roles } from 'src/user/decorators/roles.decorators';
-import { RoleType } from '@prisma/client';
+import { RoleType } from '../generated/prisma/enums';
+import { Roles, AuthGuard, RoleGuard } from '../tools';
 
 @Controller('product')
 export class ProductController {

@@ -13,10 +13,8 @@ import { WithdrawService } from './withdraw.service';
 import { CreateWithdrawDto } from './dto/create-withdraw.dto';
 import { UpdateWithdrawDto } from './dto/update-withdraw.dto';
 import { ApiQuery } from '@nestjs/swagger';
-import { RoleType } from '@prisma/client';
-import { Roles } from 'src/user/decorators/roles.decorators';
-import { RoleGuard } from 'src/role/role.guard';
-import { AuthGuard } from 'src/auth/auth.guard';
+import { RoleType } from '../generated/prisma/enums';
+import { Roles, RoleGuard, AuthGuard } from '../tools';
 
 @Controller('withdraw')
 export class WithdrawController {

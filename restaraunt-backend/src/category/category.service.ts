@@ -43,7 +43,7 @@ export class CategoryService {
         name: {
           contains: name,
           mode: 'insensitive',
-        },
+        } as any,
       };
 
       if (restaurantId) where.restaurantId = restaurantId;

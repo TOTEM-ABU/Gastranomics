@@ -12,7 +12,6 @@ import * as bcrypt from 'bcrypt';
 import { LoginUserDto } from './dto/login-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { JwtService } from '@nestjs/jwt';
-import { RoleType } from '@prisma/client';
 
 @Injectable()
 export class UserService implements OnModuleInit {
@@ -221,8 +220,12 @@ export class UserService implements OnModuleInit {
 
       const users = await this.prisma.user.findMany({
         where: {
-          name: name ? { contains: name, mode: 'insensitive' } : undefined,
-          phone: phone ? { contains: phone, mode: 'insensitive' } : undefined,
+          name: name
+            ? ({ contains: name, mode: 'insensitive' } as any)
+            : undefined,
+          phone: phone
+            ? ({ contains: phone, mode: 'insensitive' } as any)
+            : undefined,
           restaurantId: restaurantId ? restaurantId : undefined,
           regionId: regionId ? String(regionId) : undefined,
           role: role ? role : undefined,

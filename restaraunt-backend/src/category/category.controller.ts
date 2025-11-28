@@ -13,10 +13,8 @@ import { CategoryService } from './category.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
 import { ApiQuery } from '@nestjs/swagger';
-import { AuthGuard } from 'src/auth/auth.guard';
-import { RoleGuard } from 'src/role/role.guard';
-import { Roles } from 'src/user/decorators/roles.decorators';
-import { RoleType } from '@prisma/client';
+import { RoleType } from '../generated/prisma/enums';
+import { Roles, AuthGuard, RoleGuard } from '../tools';
 
 @Controller('category')
 export class CategoryController {

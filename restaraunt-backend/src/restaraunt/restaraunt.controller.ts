@@ -13,10 +13,8 @@ import { RestarauntService } from './restaraunt.service';
 import { CreateRestarauntDto } from './dto/create-restaraunt.dto';
 import { UpdateRestarauntDto } from './dto/update-restaraunt.dto';
 import { ApiQuery } from '@nestjs/swagger';
-import { Roles } from 'src/user/decorators/roles.decorators';
-import { RoleGuard } from 'src/role/role.guard';
-import { RoleType } from '@prisma/client';
-import { AuthGuard } from 'src/auth/auth.guard';
+import { RoleType } from '../generated/prisma/enums';
+import { Roles, AuthGuard, RoleGuard } from '../tools';
 
 @Controller('restaraunt')
 export class RestarauntController {

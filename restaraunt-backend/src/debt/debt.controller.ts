@@ -13,10 +13,8 @@ import { DebtService } from './debt.service';
 import { CreateDebtDto } from './dto/create-debt.dto';
 import { UpdateDebtDto } from './dto/update-debt.dto';
 import { ApiQuery } from '@nestjs/swagger';
-import { AuthGuard } from 'src/auth/auth.guard';
-import { RoleGuard } from 'src/role/role.guard';
-import { RoleType } from '@prisma/client';
-import { Roles } from 'src/user/decorators/roles.decorators';
+import { RoleType } from '../generated/prisma/enums';
+import { Roles, AuthGuard, RoleGuard } from '../tools';
 
 @Controller('debt')
 export class DebtController {
