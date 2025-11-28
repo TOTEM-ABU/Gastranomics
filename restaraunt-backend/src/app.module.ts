@@ -9,9 +9,15 @@ import { RestarauntModule } from './restaraunt/restaraunt.module';
 import { UserModule } from './user/user.module';
 import { WithdrawModule } from './withdraw/withdraw.module';
 import { PrismaModule } from './prisma/prisma.module';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     PrismaModule,
     JwtModule.register({
       global: true,
@@ -27,7 +33,7 @@ import { PrismaModule } from './prisma/prisma.module';
     UserModule,
     WithdrawModule,
   ],
-  controllers: [],
-  providers: [],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

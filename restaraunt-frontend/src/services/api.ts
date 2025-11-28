@@ -88,7 +88,7 @@ api.interceptors.response.use(
     }
 
     return Promise.reject(error);
-  }
+  },
 );
 
 export const authAPI = {
@@ -110,7 +110,7 @@ export const authAPI = {
   },
 
   refreshToken: async (
-    refreshToken: string
+    refreshToken: string,
   ): Promise<{ access_token: string }> => {
     const response = await api.post("/user/refresh-token", {
       refresh_token: refreshToken,
